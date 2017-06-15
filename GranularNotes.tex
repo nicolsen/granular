@@ -1,0 +1,50 @@
+\documentclass{book}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1in,bottom=1in,right=0.5in,left=0.5in]{geometry}
+
+\begin{document}
+\title{Granular Notes}
+\author{Nic Olsen}
+\date{\today}
+\maketitle
+
+\chapter[Triaxial]{Using the Complementarity and Penalty Methods for Solving Frictional Contact Problems in Chrono: Validation for the Standard Triaxial Test}
+
+\section{Terms and Parameters}
+\paragraph{Density} $(\rho)$
+\paragraph{Coefficient of Friction} $\mu$ $\checkmark$
+\paragraph{Young's Modulus} $Y$ - ? Like stiffness. Amount of deformation that comes with an applied stress.
+\paragraph{Coefficient of Restitution} Measures the loss of relative speed during a collision. Should be specified for each pairing of bodies. If given as an intrinsic property of a certain body, it is assumed to be for a collision of that body with an identical body.
+\begin{equation}
+e = \frac{\text{Relative speed after collision}}{\text{Relative speed before collision}} = \sqrt{\frac{KE_{(after \; collision)}}{KE_{(before \; collision)}}}
+\end{equation}
+
+\paragraph{Poisson Ratio} $(\nu)$ - ?
+
+\paragraph{Stress Ratio}
+\begin{equation}
+	SR = \frac{\sigma_1-\sigma_3}{\sigma_1+\sigma_3}
+\end{equation}
+Where $\sigma_1$ is the axial stress (the pressure the specimen acts on the top wall with) and $\sigma_3$ is the pressure that the specimen acts on the side walls with.
+\paragraph{Axial Strain} $(\epsilon)$
+\begin{equation}
+	\epsilon = \frac{\Delta L}{L_0}
+\end{equation}
+Positive in tension and negative in compression.
+\section{Questions}
+\begin{enumerate}
+	\item Why is it valid to change Young's modulus to 1000 times smaller than in reality? I understand the need to increase the axial strain rate for simulation time.
+	\item Table 8 in general.
+\end{enumerate}
+
+
+\section{DEM-P vs DEM-C}
+\paragraph{Maximum Number of Iterations} The limits the number of iterations done during each time step to calculate the normal and tangential forces from each contact.
+\subsection{DEM-P}
+Stability based on the time step $(\Delta t)$.
+\subsection{DEM-C}
+Stability based on the contact recovery speed (CRS) and maximum number of iteration (MNoI).
+\paragraph{Contact Recovery Speed} Only in DEM-C. CRS limits the normal component of the velocity of two colliding bodies. It the calculated speed would be higher, it is clamped to the CRS. (Regularly the normal component of the velocity for two bodies rebounding off each other is $\frac{\text{Penetration depth}}{\Delta t}$.) Making CRS smaller can allow for larger $\Delta t$.
+
+\end{document}
