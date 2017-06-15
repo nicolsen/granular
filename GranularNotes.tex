@@ -2,12 +2,24 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[top=1in,bottom=1in,right=0.5in,left=0.5in]{geometry}
+\usepackage{amsopn}
+
+\input{macrosSBEL.tex}
+\input{nicmacros.tex}
 
 \begin{document}
 \title{Granular Notes}
 \author{Nic Olsen}
 \date{\today}
 \maketitle
+
+\chapter[Cone Penetration]{Using the Complementarity and Penalty Methods for Solving Frictional Contact Problems in \CHRONO Validation for the Cone Penetration Test}
+\section{Questions}
+\begin{enumerate}
+	\item How were ellipsoids represented?
+	\item Is there an analytical solution for ellipsoid-ellipsoid contact?
+\end{enumerate}
+
 
 \chapter[Triaxial]{Using the Complementarity and Penalty Methods for Solving Frictional Contact Problems in Chrono: Validation for the Standard Triaxial Test}
 
@@ -36,6 +48,8 @@ Positive in tension and negative in compression.
 \begin{enumerate}
 	\item Why is it valid to change Young's modulus to 1000 times smaller than in reality? I understand the need to increase the axial strain rate for simulation time.
 	\item Table 8 in general.
+	\item Why the huge different in run times?
+	\item Why run on an i5 and how on 10 threads.
 \end{enumerate}
 
 

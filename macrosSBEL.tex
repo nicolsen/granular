@@ -1,0 +1,130 @@
+
+% highlighting, coloring, etc.
+\newcommand{\highlightThis}[1]{\textcolor{red}{{\bf{{#1}}}}}
+\newcommand{\highlight}[1]{\textcolor{red}{#1}}
+\newcommand{\textcolorRED}[1]{{\textcolor{red}{#1}}}
+\newcommand{\textcolorBLACK}[1]{{\textcolor{black}{#1}}}
+
+
+\newcommand{\softpackage}[1]{{\sffamily{#1}}}
+\newcommand{\CHRONO}{{\softpackage{{Chrono}}}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand{\cA}{{\cal A}}
+\newcommand{\fricCone}{{\cal K}}
+\newcommand{\bilateralCone}{{\cal B}}
+\newcommand{\SystemLevelCone}{{\cal C}}
+
+\newcommand{\velocity}{{{\bf{v}}}}                                          % velocity, system level
+\newcommand{\bodyVel}[1]{{\dot{\bf{r}}}_{#1}}                               % body velocity, translational
+\newcommand{\bodyAngVel}[1]{{\bar{\boldsymbol{\omega}}}_{#1}}               % body velocity, angular
+\newcommand{\tildeBodyAngVel}[1]{{\tilde{\bar{\boldsymbol{\omega}}}}_{#1}}  % matrix used in the cross product, for the angular velocity expressed in local RF 
+
+\newcommand{\nBodies}{{n_b}}                    % number of bodies in the system
+\newcommand{\nKontacts}{{N_K}}                  % number of frictional-contact events in the system
+\newcommand{\nBilateralConstr}{{N_B}}           % number of bilateral constraints in the system 
+
+
+\newcommand{\ProjectorSysLevel}{{\bf P}}                      % Projector operator, system level
+\newcommand{\bilatConstrFcoeff}{{\bf G}}                      % Projector operator, for reaction forces associated with the bilateral constraints
+\newcommand{\BigP}{{\bf D}}                                   % Projector operator, for frictional contact forces associated with the unilateral constraints 
+\newcommand{\LinearTerm}{{\bf p}}                             % Vector, system level, that multiplies the set of system-level Lagrange multipliers 
+
+\newcommand{\BigPT}{{{\bf D}^T}}
+\newcommand{\ProjT}[1]{\,{{\bf D}}^T_{#1}}
+\newcommand{\Proj}[1]{\,{{\bf D}}_{#1}}
+\newcommand{\Pn}[1]{\,{{\bf D}}_{#1,{n}}}
+\newcommand{\Ptu}[1]{\,{{\bf D}}_{#1,{u}}}
+\newcommand{\Ptw}[1]{\,{{\bf D}}_{#1,{w}}}
+\newcommand{\PnT}[1]{\,{{\bf D}}^T_{#1,{n}}}
+\newcommand{\PtuT}[1]{\,{{\bf D}}^T_{#1,{u}}}
+\newcommand{\PtwT}[1]{\,{{\bf D}}^T_{#1,{w}}}
+ 
+\newcommand{\LagrMultiplierSysLevel}{{\boldsymbol{\nu}}}                     % Set of Lagrange multipliers, system level - both unilateral and bilateral constraints
+\newcommand{\LagrMultSysLvlComp}[1]{{\boldsymbol{\nu}}_{#1}}                 % Subset of Lagrange multipliers, system level - both unilateral and bilateral constraints
+\newcommand{\LagrMultiplierSysLevelDiscr}{{\boldsymbol{\nu}}^{(l+1)}}        % Discrete flavor, set of Lagrange multipliers, system level - both unilateral and bilateral constraints
+\newcommand{\LagrMultSysLvlDiscrComp}[1]{{\boldsymbol{\nu}}_{#1}^{(l+1)}}    % Discrete flavor, set of Lagrange multipliers, system level - both unilateral and bilateral constraints
+
+
+\newcommand{\fcf}[1]{{{\boldsymbol{\gamma}}}_{#1}}                   % time-step times frictional contact force associated with contact event i
+\newcommand{\fcfDiscr}{{\boldsymbol \gamma}^{(l+1)}_{i}}             % discrete flavor, time-step times frictional contact force associated with contact event i
+\newcommand{\hfcf}[1]{\hat{{\boldsymbol{\gamma}}}_{#1}}              % frictional contact force associated with contact event i
+\newcommand{\kfhat}{\hat{{\boldsymbol{\gamma}}}^K}                   % frictional contact force, system level
+\newcommand{\kfhatDiscr}{\hat{{\boldsymbol{\gamma}}}^{K,(l+1)}}      % disdrete flavor, frictional contact force, system level
+\newcommand{\kfDiscr}{{{\boldsymbol{\gamma}}}^{K,(l+1)}}      % frictional contact force, system level
+\newcommand{\bfhat}{\hat{{\boldsymbol{\lambda}}}^B}           % bilateral force, system level
+\newcommand{\bfDiscr}{{{\boldsymbol{\lambda}}}^{B,(l+1)}}     % bilateral force, system level
+\newcommand{\bfhatDiscr}{\hat{{\boldsymbol{\lambda}}}^{B,(l+1)}}     % bilateral force, system level
+\newcommand{\kforce}{{{\boldsymbol{\gamma}}}^K}               % time-step times frictional contact force, system level
+\newcommand{\bforce}{{{\boldsymbol{\lambda}}}^B}              % time-step times time bilateral force, system level
+\newcommand{\bcf}[1]{{{{\lambda}}}_{#1}}                      % time-step times frictional contact force associated with contact event i
+\newcommand{\bcfDiscr}[1]{{\lambda}_{#1}^{(l+1)}}                    % discrete flavor, time-step times frictional contact force associated with contact event i
+\newcommand{\hbcf}[1]{\hat{{{\lambda}}}_{#1}}                 % frictional contact force associated with contact event i
+
+\newcommand{\contactVelocityN}[1]{{v}_{#1,n}}                           % normal relative velocity at the contact point
+\newcommand{\contactVelocityU}[1]{{v}_{#1,u}}                           % tangential u relative velocity at the contact point
+\newcommand{\contactVelocityW}[1]{{v}_{#1,w}}                           % tangential w relative velocity at the contact point
+\newcommand{\contactVelocityNdiscr}[1]{{v}_{#1,n}^{(l+1)}}              % discrete flavor, normal relative velocity at the contact point
+\newcommand{\contactVelocityUdiscr}[1]{{v}_{#1,u}^{(l+1)}}              % discrete flavor, tangential u relative velocity at the contact point
+\newcommand{\contactVelocityWdiscr}[1]{{v}_{#1,w}^{(l+1)}}              % discrete flavor, tangential w relative velocity at the contact point
+\newcommand{\sqrtVelocity}{{{\sqrt{{{v}}_{i,u}^2 + {{v}}_{i,w}^2}}}}
+\newcommand{\sqrtVelocityDiscr}{{{\sqrt{{{v}}_{i,u}^{2,(l+1)} + {{v}}_{i,w}^{2,(l+1)}}}}}          % discrete version, at time (l+1)
+
+
+\newcommand{\nVec}[1]{{\bf n}_{#1}}
+\newcommand{\uVec}[1]{{\bf u}_{#1}}
+\newcommand{\wVec}[1]{{\bf w}_{#1}}
+
+\newcommand{\hatGN}[1]{{\widehat{\gamma}_{#1,n}}}
+\newcommand{\hatGU}[1]{{\widehat{\gamma}_{#1,u}}}
+\newcommand{\hatGW}[1]{{\widehat{\gamma}_{#1,w}}}
+\newcommand{\hatGB}[1]{{\widehat{\gamma}_{#1,b}}}
+
+\newcommand{\Gt}[1]{{{\bf \gamma}^{T}_{#1}}}
+\newcommand{\GN}[1]{{{\gamma}_{#1,n}^{(l+1)}}}
+\newcommand{\GU}[1]{{{\gamma}_{#1,u}^{(l+1)}}}
+\newcommand{\GW}[1]{{{\gamma}_{#1,w}^{(l+1)}}}
+\newcommand{\GB}[1]{{{\gamma}_{#1,b}}}
+\newcommand{\GUsq}[1]{{{\gamma}}^2_{#1,u}}
+\newcommand{\GWsq}[1]{{{\gamma}}^2_{#1,w}}
+\newcommand{\itG}[2]{{{\gamma}^{(#2)}_{#1}}}
+
+\newcommand{\hatGin}{{{\hat{\gamma}}_{i,n}}}
+\newcommand{\hatGiu}{{{\hat{\gamma}}_{i,u}}}
+\newcommand{\hatGiw}{{{\hat{\gamma}}_{i,w}}}
+
+\newcommand{\niVec}{{{\bf n}_{i}}}
+\newcommand{\uiVec}{{{\bf u}_{i}}}
+\newcommand{\wiVec}{{{\bf w}_{i}}}
+
+\newcommand{\Gin}{{{\gamma}_{i,n}}}
+\newcommand{\Giu}{{{\gamma}_{i,u}}}
+\newcommand{\Giw}{{{\gamma}_{i,w}}}
+\newcommand{\GinDiscr}{{{\gamma}_{i,n}^{(l+1)}}}
+\newcommand{\GiuDiscr}{{{\gamma}_{i,u}^{(l+1)}}}
+\newcommand{\GiwDiscr}{{{\gamma}_{i,w}^{(l+1)}}}
+
+\newcommand{\signedGap}{{{\Phi}_i}}                                                                            % signed gap function
+\newcommand{\signedGapDiscr}[1]{{{\Phi}_i^{(#1)}}}                                                             % discrete flavor, signed gap function
+\newcommand{\sqrtHatGamma}{{\sqrt{{\hat {\gamma}}_{i,u}^2 + {\hat {\gamma}}_{i,w}^2}}}
+\newcommand{\sqrtHatGammaDiscr}{{\sqrt{{\hat {\gamma}}_{i,u}^{2,(l+1)} + {\hat {\gamma}}_{i,w}^{2,(l+1)}}}}    % discrete version, at time (l+1)
+\newcommand{\squareGamma}{{{\gamma}}_{i,u}^2 + {{\gamma}}_{i,w}^2}
+\newcommand{\sqrtGamma}{\sqrt{\squareGamma}}
+\newcommand{\sqrtGammaDiscr}{{\sqrt{{{\gamma}}_{i,u}^{2,(l+1)} + {{\gamma}}_{i,w}^{2,(l+1)}}}}                 % discrete version, at time (l+1)
+
+
+
+\newcommand{\norm}[1]{{ \left| { \left| #1 \right| }  \right| }}
+
+
+\newcommand{\AppliedF}{{{\mathbf{f}}\left( {t,  {\bf q} , {\bf v} } \right)}}
+\newcommand{\HatAppliedF}{{\hat{{\mathbf{f}}}\left( {t,  {\bf q} , {\bf v} } \right)}}
+\newcommand{\ReactF}{{{{\bf G}({{\bf q}},t){\hat{\lambda}}}}}
+\newcommand{\FricConF}{\left( \hatGN{i}\Pn{i} + \hatGU{i} \Ptu{i}  + \hatGW{i} \Ptw{i}  \right)}
+\newcommand{\DissipEnergy}{ {\bf v}^T \cdot \left( \bar \gamma_{i,u} \Ptu{i} + \bar \gamma_{i,w} \Ptw{i} \right) }
+\newcommand{\HC}[1]{\mathclap{\text{#1}}}
+
+
+
+
